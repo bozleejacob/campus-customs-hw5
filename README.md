@@ -2,7 +2,7 @@
 
 An agentic team (Boss, Inventory, Accounting, Facilities, Customer Service) that resolves tickets for a small campus shop, backed by an MCP server, a FastAPI backend, and a React dashboard.
 
-See `AI_prompts.md` for the full build log, and the per-`Problem N .../output/` folders for each step's work. The final, consolidated deliverables are in `output/` at the repo root.
+See `AI_prompts.md` for the full build log. The final deliverables are in `output/` at the repo root.
 
 ## Setup
 
@@ -65,7 +65,7 @@ Reset the database first, either via the dashboard's "Reset Shop" button or:
 curl.exe -X POST http://localhost:8000/reset
 ```
 
-Then run tickets 101, 102, and 103 from the dashboard (or `POST /tickets/{id}/run`), approving any recommended payments through the dashboard's Approve Payment modal (or `POST /payments/approve`). Every tool call, delegation, and final output is appended to `output/audit_trail.json` (via `Problem 5 .../output/audit_trail.json` during development — the root `output/audit_trail.json` is the consolidated copy for submission).
+Then run tickets 101, 102, and 103 from the dashboard (or `POST /tickets/{id}/run`), approving any recommended payments through the dashboard's Approve Payment modal (or `POST /payments/approve`). Every tool call, delegation, and final output is appended to `output/audit_trail.json` — it's never wiped, so history accumulates across runs.
 
 ## Repo layout
 
@@ -73,5 +73,4 @@ Then run tickets 101, 102, and 103 from the dashboard (or `POST /tickets/{id}/ru
 - `backend/` — the FastAPI app, the five PydanticAI agents, and their prompts
 - `frontend/` — the React + Vite + TypeScript dashboard
 - `data/` — the original database and the working copy
-- `output/` — final consolidated deliverables (harness, smoke test, desk tickets, design notes, resolved tickets, resolved board, audit trail)
-- `Problem 2 .../` through `Problem 10 .../` — the step-by-step build history, each with its own `output/`
+- `output/` — final deliverables (harness, smoke test, desk tickets, design notes, resolved tickets, resolved board, audit trail)

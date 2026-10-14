@@ -16,3 +16,7 @@ Thumbs.db
 
 # leftover download artifact, already extracted into data/
 data (2).zip
+
+# per-problem build history — kept locally for our own records, not pushed
+# (repo root matches the assignment's expected flat layout instead)
+Problem */

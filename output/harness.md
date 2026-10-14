@@ -1,6 +1,6 @@
 # Campus Customs — Full System Harness
 
-The complete agentic shop-ops system, end to end: database → MCP server → agent team → FastAPI backend → React dashboard. This consolidates what each earlier problem built; per-problem detail lives in each `Problem N .../output/harness.md`.
+The complete agentic shop-ops system, end to end: database → MCP server → agent team → FastAPI backend → React dashboard.
 
 ## 1. Database tables (`data/campus_customs_new.db`)
 
@@ -39,7 +39,7 @@ Working copy of `data/campus_customs.db`, which is never written to (reset alway
 - **Facilities** — leases, rent, due dates.
 - **Customer Service** — drafts customer messages; never sends them.
 
-All five share a `delegate(to_agent, task)` tool (`backend/team.py`) for full connectivity, under guardrails: max delegation depth 2, shared usage budget across a delegation chain (24 tool calls / 20,000 tokens per ticket run, 600 output tokens per model call). Every tool call, delegation, and final output appends to `Problem 5 .../output/audit_trail.json`, which is never wiped — it now holds the real transcripts from this run alongside earlier test entries.
+All five share a `delegate(to_agent, task)` tool (`backend/team.py`) for full connectivity, under guardrails: max delegation depth 2, shared usage budget across a delegation chain (24 tool calls / 20,000 tokens per ticket run, 600 output tokens per model call). Every tool call, delegation, and final output appends to `output/audit_trail.json`, which is never wiped — it now holds the real transcripts from this run alongside earlier test entries.
 
 ## 4. API routes (`backend/main.py`, FastAPI, `http://localhost:8000`)
 
@@ -54,7 +54,7 @@ CORS allows `http://localhost:5173` (the Vite dev server) so the browser can cal
 
 ## 5. The dashboard (`frontend/`, React + Vite + TypeScript, `npm run dev`)
 
-A corkboard of ticket cards you can select and run; a live "Agent Chatter" feed (polling `/events`) showing each agent's tool calls, delegations, and final answers as they happen; a per-agent summary once a ticket resolves; an Approve Payment modal that is the only path to moving cash; and a reactive cash meter that flashes when a payment clears. See `Problem 8 .../output/design.md` for the design reasoning.
+A corkboard of ticket cards you can select and run; a live "Agent Chatter" feed (polling `/events`) showing each agent's tool calls, delegations, and final answers as they happen; a per-agent summary once a ticket resolves; an Approve Payment modal that is the only path to moving cash; and a reactive cash meter that flashes when a payment clears. See `output/design.md` for the design reasoning.
 
 ## 6. Safety rules, and how this run respected them
 

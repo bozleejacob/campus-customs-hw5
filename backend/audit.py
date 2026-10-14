@@ -13,12 +13,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Literal
 
-AUDIT_PATH = (
-    Path(__file__).resolve().parent.parent
-    / "Problem 5 - Build the agent team and grow the MCP tools"
-    / "output"
-    / "audit_trail.json"
-)
+AUDIT_PATH = Path(__file__).resolve().parent.parent / "output" / "audit_trail.json"
 
 StepType = Literal["tool_call", "delegation", "final_output"]
 
