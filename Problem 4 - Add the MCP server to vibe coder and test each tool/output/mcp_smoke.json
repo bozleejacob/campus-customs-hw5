@@ -1,0 +1,55 @@
+{
+  "tested_at": "2026-10-14",
+  "server": "campus-customs (MCP_server/server.py)",
+  "database": "data/campus_customs_new.db",
+  "method": "Tools called live through the connected MCP server inside this Claude Code (vibe coder) session, not a standalone script.",
+  "tests": [
+    {
+      "ticket": 101,
+      "prompt_to_vibe_coder": "Check how many CC-TEE-WHITE size S hoodies/tees we have on hand.",
+      "tool": "get_inventory_level",
+      "args": { "sku": "CC-TEE-WHITE", "size": "S" },
+      "tool_output": {
+        "found": true,
+        "sku": "CC-TEE-WHITE",
+        "name": "Classic Bulldog Tee",
+        "size": "S",
+        "qty": 0,
+        "location": "Aisle B"
+      },
+      "database_row": ["CC-TEE-WHITE", "Classic Bulldog Tee", "S", 0, "Aisle B"],
+      "matches_database": true
+    },
+    {
+      "ticket": 103,
+      "prompt_to_vibe_coder": "Pull the unit cost and list price for CC-HOOD-NAVY so we can judge the bulk discount request.",
+      "tool": "get_sku_pricing",
+      "args": { "sku": "CC-HOOD-NAVY" },
+      "tool_output": {
+        "found": true,
+        "sku": "CC-HOOD-NAVY",
+        "unit_cost": 22.0,
+        "list_price": 58.0
+      },
+      "database_row": ["CC-HOOD-NAVY", 22.0, 58.0],
+      "matches_database": true
+    },
+    {
+      "ticket": 102,
+      "prompt_to_vibe_coder": "Look up the lease details for lease 1 so we know how urgent the rent notice is.",
+      "tool": "get_lease_details",
+      "args": { "lease_id": 1 },
+      "tool_output": {
+        "found": true,
+        "lease_id": 1,
+        "space_name": "Chapel Street shop",
+        "landlord": "Elm City Properties",
+        "monthly_rent": 2400.0,
+        "next_due": "2026-09-02",
+        "notes": null
+      },
+      "database_row": [1, "Chapel Street shop", "Elm City Properties", 2400.0, "2026-09-02", null],
+      "matches_database": true
+    }
+  ]
+}

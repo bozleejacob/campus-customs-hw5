@@ -1,0 +1,64 @@
+{
+  "run_started_at": "2026-10-14T16:30:00Z",
+  "starting_checking_balance": 3400.0,
+  "ending_checking_balance": 160.0,
+  "tickets": [
+    {
+      "id": 101,
+      "final_status": "resolved - restock payment approved",
+      "short_outcome": "Tee was out of stock (0 on hand). The vendor's restock invoice (501, $840) was open and unpaid, which was blocking the shop from receiving the reprint. Boss recommended paying it; a human approved the payment, so the invoice is now paid and the restock can proceed.",
+      "agent_contributions": {
+        "boss": "Pulled open tickets, today's date, and CC-TEE-WHITE pricing; delegated to Inventory and Accounting in parallel; delegated the customer draft to Customer Service; made the final call to keep the ticket pending human payment approval.",
+        "inventory": "Confirmed CC-TEE-WHITE size S is at 0 units on hand (Aisle B) and that invoice 501 is open.",
+        "accounting": "Confirmed invoice 501 is $840, due 2026-08-28, status open, and that payment approval was needed before the vendor would ship.",
+        "facilities": "Not involved in this ticket.",
+        "customer_service": "Drafted (did not send) a response to Tauhid Zaman explaining the tee is currently unavailable, without promising a restock date."
+      },
+      "human_approvals": [
+        {
+          "approved_by": "Jake",
+          "kind": "invoice",
+          "ref_id": 501,
+          "amount": 840.0,
+          "account": "checking",
+          "result": "paid - invoice 501 marked paid, balance 3400.00 -> 2560.00"
+        }
+      ]
+    },
+    {
+      "id": 102,
+      "final_status": "resolved - rent payment approved",
+      "short_outcome": "Rent of $2,400 for lease 1 (Chapel Street shop) was due 2026-09-02, two days out from the shop's 2026-08-31 date. Boss recommended paying it; a human approved the payment.",
+      "agent_contributions": {
+        "boss": "Pulled open tickets, today's date, and lease 1 details; delegated to Accounting; made the final call recommending the $2,400 payment pending human approval.",
+        "inventory": "Not involved in this ticket.",
+        "accounting": "Confirmed rent amount/due date and the checking balance, delegated to Facilities to double-check lease terms, and reported the funds/payment recommendation back to Boss.",
+        "facilities": "Confirmed lease 1's rent ($2,400), due date (2026-09-02), and landlord (Elm City Properties) directly from the lease record.",
+        "customer_service": "Not involved — the landlord isn't a customer, so no draft was needed."
+      },
+      "human_approvals": [
+        {
+          "approved_by": "Jake",
+          "kind": "lease",
+          "ref_id": 1,
+          "amount": 2400.0,
+          "account": "checking",
+          "result": "paid - balance 2560.00 -> 160.00"
+        }
+      ]
+    },
+    {
+      "id": 103,
+      "final_status": "resolved - discount declined, draft left for human",
+      "short_outcome": "Yale AI Club asked for a bulk discount on 20 CC-HOOD-NAVY (M) hoodies, but only 8 were on hand (12-unit shortfall). No discount was approved since the full quantity isn't available; Customer Service drafted a reply offering the 8 in stock for a human to send.",
+      "agent_contributions": {
+        "boss": "Pulled open tickets and today's date; delegated the stock/pricing check to Inventory and the customer draft to Customer Service; made the final call declining the bulk discount due to the shortfall.",
+        "inventory": "Confirmed CC-HOOD-NAVY size M has 8 units on hand (Aisle A) against the 20 requested, and pulled pricing (unit cost $22, list price $58).",
+        "accounting": "Not involved — Boss treated the discount question as moot once the shortfall was confirmed, so no margin review was requested.",
+        "facilities": "Not involved in this ticket.",
+        "customer_service": "Drafted (did not send) a reply to Yale AI Club laying out the real availability (8 on hand, 12 short) for a human to review."
+      },
+      "human_approvals": []
+    }
+  ]
+}
